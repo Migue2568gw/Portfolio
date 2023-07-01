@@ -30,7 +30,7 @@ function Header() {
             }
         };
 
-        const handleClick = (e) => {
+        const clickNavbar = (e) => {
             let navar = select('#navbar');
             navar.classList.add('navbar-mobile');
             e.currentTarget.classList.toggle('bi-list');
@@ -45,25 +45,36 @@ function Header() {
             }
         };
 
-        on('click', '.mobile-nav-toggle', handleClick);
+        const changeSelector = (e) => {
+            let navar = select('#navbar');
+            navar.classList.add('navbar');
+            navar.classList.remove('navbar-mobile');  
+            navar.querySelector('.bi').classList.replace('bi-x', 'bi-list'); 
+            
+        };
+
+        const ClickNavlink = (e) => {
+            if (e.target.classList.contains('nav-link')) {
+                changeSelector(e);
+            }
+          };          
+
+        on('click', '.mobile-nav-toggle', clickNavbar);
+        on('click', '#navbar', ClickNavlink);
     }, []);
-
-
 
     return (
         <header id="header">
             <div className="container">
                 <h1><Link to="/">Juan Pablo Mateus</Link></h1>
-
                 <nav id="navbar" className={`navbar`}>
                     <ul>
-                        <li><Link to="/" className="nav-link active">Inicio</Link></li>
+                        <li><Link to="/" className="nav-link">Inicio</Link></li>
                         <li><Link to="/biografia" className="nav-link">Bio</Link></li>
                         <li><Link to="/portafolio" className="nav-link">Portafolio</Link></li>
                     </ul>
                     <i className={`bi bi-list mobile-nav-toggle`}></i>
                 </nav>
-
                 <div className="social-links">
                     <a href={whatsapp} target="_blank" rel="noopener noreferrer"><i className="bi bi-whatsapp"></i></a>
                     <a href={email} target="_blank" rel="noopener noreferrer"><i className="bi bi-envelope"></i></a>

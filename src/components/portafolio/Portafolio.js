@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getFileURL } from '../firebase/FireConfig';
 import { NavBar } from '../navBar/NavBar';
-import Header from '../header/Header'
 
 function Portafolio({ localitation }) {
     const initialNav = NavBar({ localitation });
