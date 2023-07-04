@@ -67,7 +67,7 @@ function Portafolio({ localitation }) {
                                 Productos
                             </li>
                             <li onClick={() => handleCategoriaChange('Videografia')} data-filter="Videografia">
-                                Videografia
+                                Videografía
                             </li>
                         </ul>
                     </div>
