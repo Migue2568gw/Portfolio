@@ -43,7 +43,7 @@ function Portafolio({ localitation }) {
     };
 
     return (
-        <section id="portfolio" ref={initialNavRef} className={`portfolio ${initialNavRef.current ? 'section-show' : ''}`}>   
+        <section id="portfolio" ref={initialNavRef} className={`portfolio ${initialNavRef.current ? 'section-show' : ''}`}>
             <div className="container">
                 <div className="section-title">
                     <h2>Portafolio</h2>
@@ -66,6 +66,9 @@ function Portafolio({ localitation }) {
                             <li onClick={() => handleCategoriaChange('Productos')} data-filter="Productos">
                                 Productos
                             </li>
+                            <li onClick={() => handleCategoriaChange('Videografia')} data-filter="Videografia">
+                                Videografia
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -73,12 +76,16 @@ function Portafolio({ localitation }) {
                     {popupImageUrls.map((item, index) => (
                         <div className={`col-lg-4 col-md-6 portfolio-item ${filtroCategoria}`} key={index}>
                             <div className="portfolio-wrap">
-                                <img src={item.urlImgs} className="portfolio-image" onClick={() => handleImageClick(index)} />
+                                {filtroCategoria === 'Videografia' ? (
+                                    <video src={item.urlImgs} className="portfolio-video" onClick={() => handleImageClick(index)} controls />
+                                ) : (
+                                    <img src={item.urlImgs} className="portfolio-image" onClick={() => handleImageClick(index)} />
+                                )}
                             </div>
                         </div>
                     ))}
                 </div>
-                {showPopup && (
+                {filtroCategoria != 'Videografia' && showPopup && (
                     <div className="popup">
                         <button className="popup-close" onClick={handlePopupClose}>X</button>
                         <button className="popup-nav-left"

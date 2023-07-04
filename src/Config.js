@@ -7,6 +7,6 @@ export const config = {
   };
 
 export const portafolioConfig = () =>  {
- let categorias = ['Composiciones', 'Documental', 'BodasBautizos', 'Bandas', 'Productos'];
+ let categorias = ['Composiciones', 'Documental', 'BodasBautizos', 'Bandas', 'Productos','Videografia'];
  return categorias;
 }
