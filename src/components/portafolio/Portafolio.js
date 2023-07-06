@@ -12,11 +12,16 @@ function Portafolio({ localitation }) {
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
     const [popupImageUrls, setPopupImageUrls] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchUrls = async () => {
+            setIsLoading(true);
             const urls = await getFileURL();
             setImageUrls(urls);
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 800);
         };
         fetchUrls();
     }, []);
@@ -30,7 +35,11 @@ function Portafolio({ localitation }) {
     }, [imageUrls, filtroCategoria]);
 
     const handleCategoriaChange = (categoria) => {
+        setIsLoading(true);
         setFiltroCategoria(categoria);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 800);
     };
 
     const handleImageClick = (index) => {
@@ -44,6 +53,11 @@ function Portafolio({ localitation }) {
 
     return (
         <section id="portfolio" ref={initialNavRef} className={`portfolio ${initialNavRef.current ? 'section-show' : ''}`}>
+            {isLoading && (
+                <div className="loader-container">
+                    <div className="loader" />
+                </div>
+            )}
             <div className="container">
                 <div className="section-title">
                     <h2>Portafolio</h2>
