@@ -81,7 +81,7 @@ function Portafolio({ localitation }) {
                                 Productos
                             </li>
                             <li onClick={() => handleCategoriaChange('Videografia')} data-filter="Videografia">
-                                Videografía
+                                Reel Audiovisual
                             </li>
                         </ul>
                     </div>
@@ -103,16 +103,11 @@ function Portafolio({ localitation }) {
                     <div className="popup">
                         <button className="popup-close" onClick={handlePopupClose}>X</button>
                         <button className="popup-nav-left"
-                            onClick={() => setSelectedImageIndex((prevIndex) =>
-                                prevIndex === 0 ? popupImageUrls.length - 1 : prevIndex - 1
-                            )}> &lt;
+                            onClick={() => setSelectedImageIndex((prevIndex) => prevIndex === 0 ? popupImageUrls.length - 1 : prevIndex - 1)}> &lt;
                         </button>
                         <img src={popupImageUrls[selectedImageIndex].urlImgs} className="popup-image" alt="" />
-                        <button
-                            className="popup-nav-right"
-                            onClick={() => setSelectedImageIndex((prevIndex) =>
-                                prevIndex === popupImageUrls.length - 1 ? 0 : prevIndex + 1
-                            )}  >  &gt;
+                        <button className="popup-nav-right"
+                            onClick={() => setSelectedImageIndex((prevIndex) => prevIndex === popupImageUrls.length - 1 ? 0 : prevIndex + 1)}  >  &gt;
                         </button>
                     </div>
                 )}
