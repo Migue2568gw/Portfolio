@@ -6,13 +6,12 @@ const categorias = portafolioConfig();
 let ResultsCache = null;
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCTRK47zeTW4vbUsNLOTwzIMCm3euoDyyw",
-    authDomain: "portafolio-cf1be.firebaseapp.com",
-    projectId: "portafolio-cf1be",
-    storageBucket: "portafolio-cf1be.appspot.com",
-    messagingSenderId: "295060381773",
-    appId: "1:295060381773:web:3ea21f470124f7950cfc04",
-    measurementId: "G-29WMT2LRRJ"
+    apiKey: "AIzaSyCjK7Z21ksYFvvr8xR1RKJscm6Jd6RUoyI",
+    authDomain: "portfolio-b61d2.firebaseapp.com",
+    projectId: "portfolio-b61d2",
+    storageBucket: "portfolio-b61d2.appspot.com",
+    messagingSenderId: "455996424038",
+    appId: "1:455996424038:web:cd767e643a0a08f2c892a7"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -34,7 +33,7 @@ export async function getFileURL() {
         );
         return urls;
     });
-  
+
     const urlResults = await Promise.all(urlPromises);
     const JsonResult = urlResults.reduce((result, urls) => {
         return result.concat(urls);

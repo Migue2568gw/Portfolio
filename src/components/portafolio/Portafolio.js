@@ -80,9 +80,6 @@ function Portafolio({ localitation }) {
                             <li onClick={() => handleCategoriaChange('Productos')} data-filter="Productos">
                                 Productos
                             </li>
-                            <li onClick={() => handleCategoriaChange('Videografia')} data-filter="Videografia">
-                                Reel Audiovisual
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -90,16 +87,12 @@ function Portafolio({ localitation }) {
                     {popupImageUrls.map((item, index) => (
                         <div className={`col-lg-4 col-md-6 portfolio-item ${filtroCategoria}`} key={index}>
                             <div className="portfolio-wrap">
-                                {filtroCategoria === 'Videografia' ? (
-                                    <video src={item.urlImgs} className="portfolio-video" onClick={() => handleImageClick(index)} controls />
-                                ) : (
-                                    <img src={item.urlImgs} className="portfolio-image" onClick={() => handleImageClick(index)} />
-                                )}
+                                    <img src={item.urlImgs} className="portfolio-image" onClick={() => handleImageClick(index)} loading="lazy" />
                             </div>
                         </div>
                     ))}
                 </div>
-                {filtroCategoria != 'Videografia' && showPopup && (
+                {showPopup && (
                     <div className="popup">
                         <button className="popup-close" onClick={handlePopupClose}>X</button>
                         <button className="popup-nav-left"
